@@ -1,12 +1,14 @@
-const { response } = require('express');
 const path = require('path');
 
-module.exports = function (app) {
-    app.get('/notes', function(req, res) {
-        response.sendFile(path.join(__dirname, '../Develop/public/notes.html'));
-    });
+const router = require('express').Router();
 
-    app.get('*', function(req, res) {
-        response.sendFile(path.join(__dirname, '../Develop/public/index.html'));
-    });
-};
+
+router.get('/notes', function(req, res) {
+    response.sendFile(path.join(__dirname, '../Develop/public/notes.html'));
+});
+
+router.get('*', function(req, res) {
+    response.sendFile(path.join(__dirname, '../Develop/public/index.html'));
+});
+
+module.exports = router;
