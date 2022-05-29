@@ -3,7 +3,7 @@ const router = require('express').Router();
 const storage = require('../db/storage');
 
 router.get('/notes', (req, res) => {
-    store
+    storage
         .getNotes()
         .then(notes => {
             res.json(notes)
@@ -15,7 +15,7 @@ router.get('/notes', (req, res) => {
 
 router.post('/notes', (req, res) => {
     console.log(req.body)
-    store
+    storage
         .addNote(req.body)
         .then(note => {
             res.json(note)
@@ -26,7 +26,7 @@ router.post('/notes', (req, res) => {
 })
 
 router.delete('/notes/:id', (req, res) => {
-    store
+    storage
         .removeNote(req.params.id)
         .then(() => res.json({ ok: true }))
         .catch(err => res.status(500).json(err))

@@ -6,7 +6,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-app.use(express.urlencoded({ extended: true })); // parses the request body.
+app.use(express.urlencoded({ extended: true })); // parses the request body. ACCESS INFORMATION COMING FROM FORMS.
 app.use(express.json()); // allows a json object to be configured to be used in express
 app.use(express.static('./Develop/public')); 
 
