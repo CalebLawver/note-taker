@@ -1,16 +1,16 @@
-const util = require("util");
 const fs = require("fs");
 const uuid = require("uuid").v1;
+const util = require("util");
 
-const readFileAsync = util.promisify(fs.readFile);
-const writeFileAsync = util.promisify(fs.writeFile);
+const writeFile = util.promisify(fs.writeFile);
+const readFile = util.promisify(fs.readFile);
 
 class Storage {
     read() {
-        return readFileAsync("db/db.json", "utf8")
+        return readFile("db/db.json", "utf8")
     }
     write(note) {
-        return writeFileAsync("db/db.json", JSON.stringify(note))
+        return writeFile("db/db.json", JSON.stringify(note))
     }
 
     addNote(note) {
