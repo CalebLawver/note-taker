@@ -1,11 +1,11 @@
 const fs = require("fs");
 const uuid = require("uuid").v1;
-const util = require("util");
+const util = require("util"); // these are requirements to complete what is done in storage.
 
-const writeFile = util.promisify(fs.writeFile);
+const writeFile = util.promisify(fs.writeFile); // writes and reads the file
 const readFile = util.promisify(fs.readFile);
 
-class Storage {
+class Storage { // setting up the storage object
     read() {
         return readFile("db/db.json", "utf8")
     }
